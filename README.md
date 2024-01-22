@@ -21,6 +21,8 @@ From the Unity Hub | Projects tab, click "Open," navigate to where Git checked o
 This will help us find each other's code in our IDE's and will make refactoring later easier.
 ### DO Work in your own branch
 Name your branch with a prefix unique to you, and the word `staging`. Devin's branch will be called `devin/staging`, for example. If you are an old git pro and want to do more granular branch management, that's fine, but try to merge your other forks back into your personal `staging` branch before merging into `main`
+### DO Write useful commit messages
+It's tempting to write something like "changed stuff" or "small fixes" as your commit message, but please don't! Useful commit messages are the best way we have of keeping track of what everyone is doing. Use short imperative clauses to describe what the commit will do. "Add trees to main Scene," "Add support for using xbox controller; Fix issues with background music," etc.
 ### DO Create a new Unity scene to test your feature
 Create a scene for yourself and do new work there. Only include the bare minimum objects and components in your scene to validate what you're working on. If you're building/testing a lot of things, consider making your own directory to store your Scenes.
 ### DO Use ScriptableObjects for exposing global state and raising events (and avoid Singletons)
