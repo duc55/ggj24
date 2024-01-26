@@ -30,22 +30,22 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         // if(Keyboard.current.spaceKey.wasPressedThisFrame)
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            // StopAllCoroutines();
-            StopCoroutine("HitR");
-            StartCoroutine("HitR");
-        }
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            // StopAllCoroutines();
-            StopCoroutine("HitL");
-            StartCoroutine("HitL");
-        }
+        // if(Input.GetKeyDown(KeyCode.J))
+        // {
+        //     // StopAllCoroutines();
+        //     StopCoroutine("HitR");
+        //     StartCoroutine("HitR");
+        // }
+        // if(Input.GetKeyDown(KeyCode.K))
+        // {
+        //     // StopAllCoroutines();
+        //     StopCoroutine("HitL");
+        //     StartCoroutine("HitL");
+        // }
     }
     
     
-    IEnumerator HitL()
+    public IEnumerator HitL()
     {
         WaitForFixedUpdate wait = new WaitForFixedUpdate();
         //enable the script
@@ -64,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
         handL_MatchPosRot.enabled = false;
     }
     
-    IEnumerator HitR()
+    public IEnumerator HitR()
     {
         WaitForFixedUpdate wait = new WaitForFixedUpdate();
         //enable the script

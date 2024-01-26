@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Bump",
+                    "name": "AttackLeft",
                     "type": "Button",
-                    "id": "f760f8f9-7706-4d34-be24-ef26f58d3a53",
+                    "id": "7e853be9-863e-47b3-b4ee-f8273fd09bda",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackRight",
+                    "type": "Button",
+                    "id": "8a07b130-1315-4836-ae54-77157f8c0a3c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -137,23 +146,45 @@
                 },
                 {
                     "name": "",
-                    "id": "44939345-194b-4587-b417-8f8d38ce02b5",
-                    "path": "<Mouse>/rightButton",
+                    "id": "b5b05f11-b443-4a59-90fe-3d4c19f9ce14",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Bump",
+                    "groups": "Gamepad",
+                    "action": "AttackLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "858338ef-04c0-45cc-917a-caa083a24c7f",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "65e58c3f-d273-4a9b-a280-c0bb2b7d5d17",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Bump",
+                    "groups": "Keyboard&Mouse",
+                    "action": "AttackLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e59585fb-fd42-4212-bdce-81e176350965",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "AttackRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d060795-db14-47e5-9a54-e09e0d2150bd",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "AttackRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -680,7 +711,7 @@
             "id": "9feb70bb-dd18-4236-bb93-063fc14fb88c",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "JoinGame",
                     "type": "Button",
                     "id": "3b46d8fe-58ac-4928-b1e3-d9f405054bfa",
                     "expectedControlType": "Button",
@@ -697,7 +728,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "New action",
+                    "action": "JoinGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -708,7 +739,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "New action",
+                    "action": "JoinGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

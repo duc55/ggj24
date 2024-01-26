@@ -10,6 +10,7 @@ namespace LeftOut.GameJam
     public class RagdollCharacterDriver : MonoBehaviour
     {
         private CharacterController _cc;
+        private PlayerCombat _combat;
         private ControlState _state;
         
         [SerializeField]
@@ -25,6 +26,7 @@ namespace LeftOut.GameJam
         {
             _cc = GetComponent<CharacterController>();
             _state = new ControlState();
+            _combat = ragDollRoot.GetComponentInChildren<PlayerCombat>();
             ragDollRoot.parent = null;
         }
 
@@ -47,6 +49,25 @@ namespace LeftOut.GameJam
         {
             _state.MoveVector.x = x;
             _state.MoveVector.z = z;
+        }
+
+        private Coroutine _attackRoutine;
+
+        private void CancelAttack()
+        {
+            if (_attackRoutine != null)
+                StopCoroutine(_attackRoutine);
+        }
+
+        public void AttackLeft()
+        {
+            CancelAttack();
+            _attackRoutine = StartCoroutine(_combat.HitL());
+        }
+        public void AttackRight()
+        {
+            CancelAttack();
+            _attackRoutine = StartCoroutine(_combat.HitR());
         }
     }
 }
