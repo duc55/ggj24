@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ragdolls
   - Water
   - UI
   - walkable
-  - 
+  - CharacterControllers
   - 
   - 
   - 
