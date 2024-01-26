@@ -29,6 +29,8 @@ public class PlayerRotation : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        CurrentLookDir = cam.transform.forward;
+        CurrentLookDir.y = 0;
     }
 
     private void Update()
