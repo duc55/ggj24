@@ -1,0 +1,882 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e4c0965c2a44f7d9fdb8995dadf98d, type: 3}
+  m_Name: RagdollConfig_HUMAN_GUARD_fromGO_210404032026
+  m_EditorClassIdentifier: 
+  changeDotsToUnderscores: 0
+  changeUnderscoresToDots: 0
+  bodyPartsNamesToConfigureList: []
+  rigidbodyNamesToExculdeList: []
+  ragdollBPList:
+  - bodyPartName: PlayerROOT
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 10
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 2
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.35
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 0
+    connectedTo: 
+    jointType: 0
+    jointAxis: {x: 0, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: 0}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 0
+    jointPosDamper: 0
+    jointPosMaxForce: 2222
+    jointStartingRotation: {x: 0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: hips
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 10
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 0
+    boxCenter: {x: -1.3889221e-17, y: 0.115523376, z: 0.03339302}
+    boxSize: {x: 0.38088408, y: 0.21785073, z: 0.3073158}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 0
+    connectedTo: PlayerROOT
+    jointType: 1
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 1, z: 0}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 8888
+    jointPosDamper: 0
+    jointPosMaxForce: 111111
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: spine
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 0
+    boxCenter: {x: -2.8896423e-15, y: 0.19000004, z: 0.027795738}
+    boxSize: {x: 0.3556521, y: 0.20077395, z: 0.29611975}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: hips
+    jointType: 1
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -15
+    xMax: 15
+    yMin: 0
+    zMax: 15
+    YZSpr: 0
+    jointPosSpring: 2222
+    jointPosDamper: 10
+    jointPosMaxForce: 5555
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: chest
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 0
+    boxCenter: {x: 3.2601536e-16, y: 0.12834425, z: 0.0045151548}
+    boxSize: {x: 0.32104927, y: 0.16149066, z: 0.24955839}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: spine
+    jointType: 1
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -20
+    xMax: 0
+    yMin: 10
+    zMax: 15
+    YZSpr: 0
+    jointPosSpring: 2222
+    jointPosDamper: 10
+    jointPosMaxForce: 5555
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: neck
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 0
+    usePhysicsMaterial: 0
+    colType: 0
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: chest
+    jointType: 1
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -10
+    xMax: 10
+    yMin: 10
+    zMax: 30
+    YZSpr: 0
+    jointPosSpring: 2222
+    jointPosDamper: 10
+    jointPosMaxForce: 5555
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: head
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 2
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0.2, z: 0}
+    sphereRadius: 0.23
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: neck
+    jointType: 1
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -20
+    xMax: 10
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 2222
+    jointPosDamper: 10
+    jointPosMaxForce: 5555
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: shoulder_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 0
+    usePhysicsMaterial: 0
+    colType: 0
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: chest
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -10
+    xMax: 10
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: upper_arm_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 4
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.18, z: 0}
+    capRadius: 0.08
+    capHeight: 0.29
+    capDirection: 1
+    addJoint: 1
+    connectedTo: shoulder_L
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -90
+    xMax: 30
+    yMin: 60
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: forearm_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 3
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.21, z: 0}
+    capRadius: 0.07
+    capHeight: 0.25
+    capDirection: 1
+    addJoint: 1
+    connectedTo: upper_arm_L
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -60
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: hand_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 3
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.1, z: 0}
+    capRadius: 0.07
+    capHeight: 0.07
+    capDirection: 1
+    addJoint: 1
+    connectedTo: forearm_L
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: shoulder_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 0
+    usePhysicsMaterial: 0
+    colType: 0
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: chest
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -10
+    xMax: 10
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: upper_arm_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 4
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.18, z: 0}
+    capRadius: 0.08
+    capHeight: 0.29
+    capDirection: 1
+    addJoint: 1
+    connectedTo: shoulder_R
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -90
+    xMax: 30
+    yMin: 60
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: forearm_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 3
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.21, z: 0}
+    capRadius: 0.07
+    capHeight: 0.25
+    capDirection: 1
+    addJoint: 1
+    connectedTo: upper_arm_R
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -60
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: hand_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 2
+    drag: 0
+    angDrag: 0
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.1, z: 0}
+    capRadius: 0.07
+    capHeight: 0.07
+    capDirection: 1
+    addJoint: 1
+    connectedTo: forearm_R
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 55
+    jointPosDamper: 10
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: thigh_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.3, z: 0}
+    capRadius: 0.091
+    capHeight: 0.2
+    capDirection: 1
+    addJoint: 1
+    connectedTo: hips
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -25
+    xMax: 70
+    yMin: 20
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 555
+    jointPosDamper: 0
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: shin_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.14, z: 0}
+    capRadius: 0.06
+    capHeight: 0.15
+    capDirection: 1
+    addJoint: 1
+    connectedTo: thigh_L
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -80
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 555
+    jointPosDamper: 0
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: foot_L
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 2
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0.12, z: -0.03}
+    sphereRadius: 0.03
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: shin_L
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -20
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 555
+    jointPosDamper: 0
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: thigh_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.3, z: 0}
+    capRadius: 0.091
+    capHeight: 0.2
+    capDirection: 1
+    addJoint: 1
+    connectedTo: hips
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -25
+    xMax: 70
+    yMin: 20
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 555
+    jointPosDamper: 0
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: shin_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 1
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0, z: 0}
+    sphereRadius: 0.1
+    capCenter: {x: 0, y: 0.14, z: 0}
+    capRadius: 0.06
+    capHeight: 0.15
+    capDirection: 1
+    addJoint: 1
+    connectedTo: thigh_R
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -80
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 555
+    jointPosDamper: 0
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  - bodyPartName: foot_R
+    bodyPartTag: Untagged
+    currentGroundCheckTic: 0
+    addRB: 1
+    useGravity: 1
+    isCharRefRB: 0
+    mass: 5
+    drag: 0
+    angDrag: 0.05
+    rbVelSqrMag: 0
+    rbAngVelSqrMag: 0
+    centerOfMass: {x: 0, y: 0, z: 0}
+    addColl: 1
+    usePhysicsMaterial: 1
+    colType: 2
+    boxCenter: {x: 0, y: 0, z: 0}
+    boxSize: {x: 0.1, y: 0.1, z: 0.1}
+    sphereCenter: {x: 0, y: 0.12, z: -0.03}
+    sphereRadius: 0.03
+    capCenter: {x: 0, y: 0, z: 0}
+    capRadius: 0.1
+    capHeight: 0.1
+    capDirection: 0
+    addJoint: 1
+    connectedTo: shin_R
+    jointType: 0
+    jointAxis: {x: 1, y: 0, z: 0}
+    jointSecondaryAxis: {x: 0, y: 0, z: -1}
+    jointNeedsToBeReset: 0
+    usingCustomJointSettings: 0
+    xMin: -20
+    xMax: 0
+    yMin: 0
+    zMax: 0
+    YZSpr: 0
+    jointPosSpring: 555
+    jointPosDamper: 0
+    jointPosMaxForce: 5000
+    jointStartingRotation: {x: -0, y: 0, z: 0}
+    startingPos: {x: 0, y: 0, z: 0}
+    startingRot: {x: 0, y: 0, z: 0, w: 0}
+    startingLocalPos: {x: 0, y: 0, z: 0}
+    startingLocalRot: {x: 0, y: 0, z: 0, w: 0}
+  previousConfigsJsonList:
+  - '{"bodyPartsNamesToConfigureList":[],"rigidbodyNamesToExculdeList":[],"ragdollBPList":[{"bodyPartName":"PlayerROOT","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":10.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":2,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.3499999940395355,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":false,"connectedTo":"","jointType":0,"jointAxis":{"x":0.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":0.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":0.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":0.0,"jointPosDamper":0.0,"jointPosMaxForce":2222.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"hips","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":10.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":0,"boxCenter":{"x":-1.3889221098241166e-17,"y":0.11552337557077408,"z":0.033393021672964099},"boxSize":{"x":0.3808840811252594,"y":0.2178507298231125,"z":0.30731579661369326},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"PlayerROOT","jointType":1,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":1.0,"z":0.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":0.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":8888.0,"jointPosDamper":0.0,"jointPosMaxForce":111111.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"spine","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":0,"boxCenter":{"x":-2.889642311646205e-15,"y":0.1900000423192978,"z":0.027795737609267236},"boxSize":{"x":0.3556520938873291,"y":0.2007739543914795,"z":0.296119749546051},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"hips","jointType":1,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-15.0,"xMax":15.0,"yMin":0.0,"zMax":15.0,"YZSpr":0.0,"jointPosSpring":2222.0,"jointPosDamper":10.0,"jointPosMaxForce":5555.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"chest","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":0,"boxCenter":{"x":3.260153581016549e-16,"y":0.12834425270557404,"z":0.004515154752880335},"boxSize":{"x":0.3210492730140686,"y":0.16149066388607026,"z":0.24955838918685914},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"spine","jointType":1,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-20.0,"xMax":0.0,"yMin":10.0,"zMax":15.0,"YZSpr":0.0,"jointPosSpring":2222.0,"jointPosDamper":10.0,"jointPosMaxForce":5555.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"neck","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":false,"usePhysicsMaterial":false,"colType":0,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"chest","jointType":1,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-10.0,"xMax":10.0,"yMin":10.0,"zMax":30.0,"YZSpr":0.0,"jointPosSpring":2222.0,"jointPosDamper":10.0,"jointPosMaxForce":5555.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"head","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":2,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.20000000298023225,"z":0.0},"sphereRadius":0.23000000417232514,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"neck","jointType":1,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-20.0,"xMax":10.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":2222.0,"jointPosDamper":10.0,"jointPosMaxForce":5555.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"shoulder_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":false,"usePhysicsMaterial":false,"colType":0,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"chest","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-10.0,"xMax":10.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"upper_arm_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":4.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.18000000715255738,"z":0.0},"capRadius":0.07999999821186066,"capHeight":0.28999999165534975,"capDirection":1,"addJoint":true,"connectedTo":"shoulder_L","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-90.0,"xMax":30.0,"yMin":60.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"forearm_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":3.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.20999999344348908,"z":0.0},"capRadius":0.07000000029802323,"capHeight":0.25,"capDirection":1,"addJoint":true,"connectedTo":"upper_arm_L","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-60.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"hand_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":3.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.10000000149011612,"z":0.0},"capRadius":0.07000000029802323,"capHeight":0.07000000029802323,"capDirection":1,"addJoint":true,"connectedTo":"forearm_L","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":0.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"shoulder_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":false,"usePhysicsMaterial":false,"colType":0,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"chest","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-10.0,"xMax":10.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"upper_arm_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":4.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.18000000715255738,"z":0.0},"capRadius":0.07999999821186066,"capHeight":0.28999999165534975,"capDirection":1,"addJoint":true,"connectedTo":"shoulder_R","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-90.0,"xMax":30.0,"yMin":60.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"forearm_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":3.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.20999999344348908,"z":0.0},"capRadius":0.07000000029802323,"capHeight":0.25,"capDirection":1,"addJoint":true,"connectedTo":"upper_arm_R","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-60.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"hand_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":2.0,"drag":0.0,"angDrag":0.0,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.10000000149011612,"z":0.0},"capRadius":0.07000000029802323,"capHeight":0.07000000029802323,"capDirection":1,"addJoint":true,"connectedTo":"forearm_R","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":0.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":55.0,"jointPosDamper":10.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"thigh_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.30000001192092898,"z":0.0},"capRadius":0.09099999815225601,"capHeight":0.20000000298023225,"capDirection":1,"addJoint":true,"connectedTo":"hips","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-25.0,"xMax":70.0,"yMin":20.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":555.0,"jointPosDamper":0.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"shin_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.14000000059604646,"z":0.0},"capRadius":0.05999999865889549,"capHeight":0.15000000596046449,"capDirection":1,"addJoint":true,"connectedTo":"thigh_L","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-80.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":555.0,"jointPosDamper":0.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"foot_L","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":2,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.11999999731779099,"z":-0.029999999329447748},"sphereRadius":0.029999999329447748,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"shin_L","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-20.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":555.0,"jointPosDamper":0.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"thigh_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.30000001192092898,"z":0.0},"capRadius":0.09099999815225601,"capHeight":0.20000000298023225,"capDirection":1,"addJoint":true,"connectedTo":"hips","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-25.0,"xMax":70.0,"yMin":20.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":555.0,"jointPosDamper":0.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"shin_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":1,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.0,"z":0.0},"sphereRadius":0.10000000149011612,"capCenter":{"x":0.0,"y":0.14000000059604646,"z":0.0},"capRadius":0.05999999865889549,"capHeight":0.15000000596046449,"capDirection":1,"addJoint":true,"connectedTo":"thigh_R","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-80.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":555.0,"jointPosDamper":0.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}},{"bodyPartName":"foot_R","bodyPartTag":"Untagged","currentGroundCheckTic":0,"addRB":true,"useGravity":true,"isCharRefRB":false,"mass":5.0,"drag":0.0,"angDrag":0.05000000074505806,"rbVelSqrMag":0.0,"rbAngVelSqrMag":0.0,"centerOfMass":{"x":0.0,"y":0.0,"z":0.0},"addColl":true,"usePhysicsMaterial":true,"colType":2,"boxCenter":{"x":0.0,"y":0.0,"z":0.0},"boxSize":{"x":0.10000000149011612,"y":0.10000000149011612,"z":0.10000000149011612},"sphereCenter":{"x":0.0,"y":0.11999999731779099,"z":-0.029999999329447748},"sphereRadius":0.029999999329447748,"capCenter":{"x":0.0,"y":0.0,"z":0.0},"capRadius":0.10000000149011612,"capHeight":0.10000000149011612,"capDirection":0,"addJoint":true,"connectedTo":"shin_R","jointType":0,"jointAxis":{"x":1.0,"y":0.0,"z":0.0},"jointSecondaryAxis":{"x":0.0,"y":0.0,"z":-1.0},"jointNeedsToBeReset":false,"usingCustomJointSettings":false,"xMin":-20.0,"xMax":0.0,"yMin":0.0,"zMax":0.0,"YZSpr":0.0,"jointPosSpring":555.0,"jointPosDamper":0.0,"jointPosMaxForce":5000.0,"jointStartingRotation":{"x":0.0,"y":0.0,"z":0.0},"startingPos":{"x":0.0,"y":0.0,"z":0.0},"startingRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0},"startingLocalPos":{"x":0.0,"y":0.0,"z":0.0},"startingLocalRot":{"x":0.0,"y":0.0,"z":0.0,"w":0.0}}],"previousConfigsJsonList":[],"previousConfigsJsonOLDFORMATList":[]}'
+  previousConfigsJsonOLDFORMATList: []
