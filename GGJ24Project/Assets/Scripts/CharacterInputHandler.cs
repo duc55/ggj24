@@ -3,16 +3,21 @@ using UnityEngine.InputSystem;
 
 namespace LeftOut.GameJam
 {
-    [RequireComponent(typeof(DummyController))]
-    public class InputHandler : MonoBehaviour
+    [RequireComponent(typeof(RagdollCharacterDriver))]
+    public class CharacterInputHandler : MonoBehaviour
     {
-        private DummyController _controller;
-        private Camera _mainCamera;
+        private Camera _cam;
+        private RagdollCharacterDriver _characterDriver;
 
         private void Awake()
         {
-            _controller = GetComponent<DummyController>();
-            _mainCamera = Camera.main;
+            _cam = Camera.main;
+            _characterDriver = GetComponent<RagdollCharacterDriver>();
+        }
+
+        public void BindInputs(PlayerInput playerInput)
+        {
+            playerInput.actions["Move"].performed += OnMove;
         }
 
         private static Vector3 MoveVectorRelativeToWorld(Transform cameraTf, in Vector2 moveInputRaw)
@@ -30,11 +35,14 @@ namespace LeftOut.GameJam
             return moveInputWorldPlane;
         }
 
-
-        public void OnMove(InputValue val)
+        public void OnMove(InputAction.CallbackContext ctx)
+            => OnMove(ctx.ReadValue<Vector2>());
+        public void OnMove(InputValue val) => OnMove(val.Get<Vector2>());
+        
+        private void OnMove(Vector2 moveRelative)
         {
-            var moveVectorWorld = MoveVectorRelativeToWorld(_mainCamera.transform, val.Get<Vector2>());
-            _controller.SetMove(moveVectorWorld);
+            var moveWorld = MoveVectorRelativeToWorld(_cam.transform, moveRelative);
+            _characterDriver.SetMove(moveWorld);
         }
     }
 }

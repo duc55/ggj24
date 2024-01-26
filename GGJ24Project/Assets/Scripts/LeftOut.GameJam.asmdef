@@ -2,7 +2,10 @@
     "name": "LeftOut.GameJam",
     "rootNamespace": "LeftOut.GameJam",
     "references": [
-        "Unity.InputSystem"
+        "Unity.InputSystem",
+        "Cinemachine",
+        "Unity.RenderPipelines.Core.Runtime",
+        "NaughtyAttributes.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

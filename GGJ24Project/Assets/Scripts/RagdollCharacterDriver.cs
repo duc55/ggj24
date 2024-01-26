@@ -2,24 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace LeftOut.GameJam 
 {
     [RequireComponent(typeof(CharacterController))]
-    public class DummyController : MonoBehaviour
+    public class RagdollCharacterDriver : MonoBehaviour
     {
         private CharacterController _cc;
         private ControlState _state;
+        
+        [SerializeField]
+        private Transform ragDollRoot;
+        public Transform cameraTarget;
 
         [SerializeField, Range(0.01f, 10f)]
         private float movementGain = 1f;
-        [SerializeField, Range(60f, 720f)]
-        private float rotationSpeed = 1f;
+        [SerializeField, Range(60f, 1080f)]
+        private float rotationSpeed = 720f;
         
         void Start()
         {
             _cc = GetComponent<CharacterController>();
             _state = new ControlState();
+            ragDollRoot.parent = null;
         }
 
         private void Update()

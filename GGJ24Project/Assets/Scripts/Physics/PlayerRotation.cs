@@ -17,11 +17,11 @@ public class PlayerRotation : MonoBehaviour
 
     private float kd;
 
-    private float yRotation = 0;
+    private float yRotation => RotationTarget.rotation.y;
     public bool orientUp = true;
     public bool orientForward = false;
     public bool alwaysFaceForward = false;
-    private Vector3 CurrentLookDir;
+    private Vector3 CurrentLookDir => RotationTarget.forward;
 
     private Camera cam;
     // public GroundCheckLander groundCheck;
@@ -35,16 +35,16 @@ public class PlayerRotation : MonoBehaviour
     {
         //if w or s key pressed, set the rotation target to the camera's forward
         // if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
-        var inputH = Input.GetAxisRaw("Horizontal");
-        var inputV = Input.GetAxisRaw("Vertical");
-        if (inputH != 0 || inputV != 0 )
-        {
-            CurrentLookDir = cam.transform.TransformDirection(inputH, 0, inputV);
-            CurrentLookDir.y = 0;
-            // RotationTarget.rotation = Quaternion.LookRotation(forwardTransformOverride.forward, Vector3.up);
-            yRotation = RotationTarget.eulerAngles.y;
+        // var inputH = Input.GetAxisRaw("Horizontal");
+        // var inputV = Input.GetAxisRaw("Vertical");
+        // if (inputH != 0 || inputV != 0 )
+        // {
+        //     CurrentLookDir = cam.transform.TransformDirection(inputH, 0, inputV);
+        //     CurrentLookDir.y = 0;
+        //     // RotationTarget.rotation = Quaternion.LookRotation(forwardTransformOverride.forward, Vector3.up);
+        //     yRotation = RotationTarget.eulerAngles.y;
 
-        }
+        // }
     }
 
     // Update is called once per frame

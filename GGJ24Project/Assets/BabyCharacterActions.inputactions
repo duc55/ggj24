@@ -674,6 +674,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MetaActions",
+            "id": "9feb70bb-dd18-4236-bb93-063fc14fb88c",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "3b46d8fe-58ac-4928-b1e3-d9f405054bfa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "894b89a2-8cd2-4d60-9d99-8ee03afd5241",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59931a1b-eb99-4cd2-b8ec-80dfa3137639",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
