@@ -1,32 +1,32 @@
-using System;
+using Cinemachine;
 using UnityEngine;
 
 namespace LeftOut.GameJam 
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class RagdollCharacterDriver : MonoBehaviour
+    public class RagdollLocomotion : MonoBehaviour
     {
         private Rigidbody _rb;
-        // This is the thing that moves the hands on the ragdoll
-        private PlayerCombat _combat;
-        
         private ControlState _state;
-        
-        [SerializeField]
-        private Transform ragDollRoot;
-        public Transform cameraTarget;
+        private float _timeLastRunStarted;
+        private float _timeLastRunStopped;
 
+        [SerializeField]
+        private CinemachineDollyCart footCartLeft;
+        [SerializeField]
+        private CinemachineDollyCart footCartRight;
+        
+        
         [SerializeField, Range(0.01f, 10f)]
         private float movementSpeed = 1f;
-        [SerializeField, Range(60f, 1080f)]
-        private float rotationSpeed = 720f;
+        private float RotationSpeed => movementSpeed * 360f;
         
         void Start()
         {
             _rb = GetComponent<Rigidbody>();
             _state = new ControlState();
-            _combat = ragDollRoot.GetComponentInChildren<PlayerCombat>();
-            ragDollRoot.parent = null;
+            _timeLastRunStopped = Time.time - 1f;
+            _timeLastRunStarted = Time.time - 2f;
         }
 
         private void Update()
@@ -36,12 +36,14 @@ namespace LeftOut.GameJam
                 return;
             
             transform.rotation = Quaternion.RotateTowards(
-                transform.rotation, Quaternion.LookRotation(_state.MoveVector), rotationSpeed * Time.deltaTime);
+                transform.rotation, Quaternion.LookRotation(_state.MoveVector), RotationSpeed * Time.deltaTime);
         }
 
         private void FixedUpdate()
         {
             var lateralVelocity = movementSpeed * _state.MoveVector;
+            footCartLeft.m_Speed = lateralVelocity.magnitude / 2f;
+            footCartRight.m_Speed = lateralVelocity.magnitude / 2f;
             var currentVelocity = _rb.velocity;
             _rb.velocity = new Vector3(lateralVelocity.x, currentVelocity.y, lateralVelocity.z);
         }
@@ -57,23 +59,5 @@ namespace LeftOut.GameJam
             _state.MoveVector.z = z;
         }
 
-        private Coroutine _attackRoutine;
-
-        private void CancelAttack()
-        {
-            if (_attackRoutine != null)
-                StopCoroutine(_attackRoutine);
-        }
-
-        public void AttackLeft()
-        {
-            CancelAttack();
-            _attackRoutine = StartCoroutine(_combat.HitL());
-        }
-        public void AttackRight()
-        {
-            CancelAttack();
-            _attackRoutine = StartCoroutine(_combat.HitR());
-        }
     }
 }
