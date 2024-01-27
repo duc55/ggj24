@@ -65,6 +65,7 @@ namespace LeftOut.GameJam
             }
         }
 
+        // >>> TODO: Reduce speed if doing attacks
         private void FixedUpdate()
         {
             var lateralVelocity = CurrentSpeed * _state.MoveVector;

@@ -49574,6 +49574,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultRagdollHitboxCooldown: 0
+  hitResolvedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  logHitResolution: 0
 --- !u!4 &1948490851
 Transform:
   m_ObjectHideFlags: 0
