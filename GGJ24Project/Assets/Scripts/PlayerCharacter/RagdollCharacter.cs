@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -10,15 +11,20 @@ namespace LeftOut.GameJam
 
         [Button]
         public static void ClearInstanceRegistry()
-            => InstanceRegistry<RagdollCharacter, Collider>.Clear();
+        {
+            ComponentOwnerRegistry<RagdollCharacter, Collider>.Clear();
+            InstanceRegistry<RagdollCharacter>.Clear();
+        }
 
         private void Start()
         {
             ragDollRoot.parent = null;
-            foreach (var col in ragDollRoot.GetComponentsInChildren<Collider>())
-            {
-                InstanceRegistry<RagdollCharacter, Collider>.Register(this, col);
-            }
+            MatchInfo.Register(this);
+        }
+
+        private void OnDisable()
+        {
+            MatchInfo.UnRegister(this);
         }
     }
 }
