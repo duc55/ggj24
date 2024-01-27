@@ -5066,10 +5066,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1473521858}
-    - targetCorrespondingSourceObject: {fileID: 1605949063258478399, guid: 0424f1c611ccb1242af19fb84e9e0311,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1473521859}
   m_SourcePrefab: {fileID: 100100000, guid: 0424f1c611ccb1242af19fb84e9e0311, type: 3}
 --- !u!1 &225072778
 GameObject:
@@ -41213,25 +41209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyAnchor: {fileID: 455840441}
---- !u!114 &1473521859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473521849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f63ecb72a34404683443d8389e2d7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialToApplyToMesh: {fileID: 0}
-  bodyToAttachTo: {fileID: 1806210557}
-  getTargetArmatureBones: 0
-  meshesToAttachList:
-  - {fileID: 8065797169810562405}
-  moveMeshesToTargetArmature: 0
-  originalGameObject: {fileID: 0}
 --- !u!1 &1479360471
 GameObject:
   m_ObjectHideFlags: 0
@@ -49771,12 +49748,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2021750556}
   m_SourcePrefab: {fileID: 100100000, guid: 02fcfe458ba584add95d2a3c411b6f16, type: 3}
---- !u!137 &1806210557 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 4195655039071581802, guid: 0424f1c611ccb1242af19fb84e9e0311,
-    type: 3}
-  m_PrefabInstance: {fileID: 224111904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815600863
 GameObject:
   m_ObjectHideFlags: 0
