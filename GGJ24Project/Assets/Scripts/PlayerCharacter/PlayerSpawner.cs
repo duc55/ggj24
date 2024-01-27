@@ -57,7 +57,7 @@ namespace LeftOut.GameJam
             // }
             playerCharacter.GetComponent<CharacterInputHandler>().BindInputs(inputs);
             targetGroup.AddMember(
-                playerCharacter.GetComponent<RagdollCharacterDriver>().cameraTarget, 1, targetRadius);
+                playerCharacter.GetComponent<RagdollCharacter>().cameraTarget, 1, targetRadius);
         }
     }
 }

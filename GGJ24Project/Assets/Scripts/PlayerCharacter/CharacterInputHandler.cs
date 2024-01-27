@@ -5,13 +5,16 @@ using UnityEngine.InputSystem;
 
 namespace LeftOut.GameJam
 {
-    [RequireComponent(typeof(RagdollCharacterDriver))]
+    [RequireComponent(typeof(RagdollLocomotion))]
+    [RequireComponent(typeof(RagdollCombat))]
     public class CharacterInputHandler : MonoBehaviour
     {
         private Camera _cam;
-        private RagdollCharacterDriver _characterDriver;
+        private RagdollLocomotion _locomotion;
+        private RagdollCombat _combat;
         private PlayerInput _input;
         private InputAction _moveInput;
+        private InputAction _runInput;
         private Dictionary<InputAction, System.Action<InputAction.CallbackContext>> _actionCallbacks;
         private bool _isInitialized;
 
@@ -35,7 +38,8 @@ namespace LeftOut.GameJam
         {
             _cam = Camera.main;
             _isInitialized = false;
-            _characterDriver = GetComponent<RagdollCharacterDriver>();
+            _locomotion = GetComponent<RagdollLocomotion>();
+            _combat = GetComponent<RagdollCombat>();
             if (!initializeSelf)
                 return;
             
@@ -54,6 +58,7 @@ namespace LeftOut.GameJam
             if (!_isInitialized)
                 return;
             OnMove(_moveInput.ReadValue<Vector2>());
+            
         }
 
         public void BindInputs(PlayerInput playerInput)
@@ -62,10 +67,12 @@ namespace LeftOut.GameJam
             //playerInput.actions["Move"].performed += OnMove;
             _input = playerInput;
             _moveInput = playerInput.actions["Move"];
+            _runInput = playerInput.actions["Run"];
             // Need to store reference to our callbacks so we can unsubscribe OnDisable
             // (otherwise we get null callbacks when no domain reload)
             AddCallback(playerInput.actions["AttackLeft"], OnAttackLeft);
             AddCallback(playerInput.actions["AttackRight"], OnAttackRight);
+            //AddCallback(playerInput.actions["Run"], OnRun);
             _isInitialized = true;
         }
 
@@ -108,7 +115,7 @@ namespace LeftOut.GameJam
         private void OnMove(Vector2 moveRelative)
         {
             var moveWorld = MoveVectorRelativeToWorld(_cam.transform, moveRelative);
-            _characterDriver.SetMove(moveWorld);
+            _locomotion.SetMove(moveWorld);
         }
 
         private void OnAttackLeft(InputAction.CallbackContext ctx)
@@ -116,7 +123,7 @@ namespace LeftOut.GameJam
             if (!ctx.performed)
                 return;
             
-            _characterDriver.AttackLeft();
+            _combat.TryPerform(AttackType.SlapLeft);
         }
 
         private void OnAttackRight(InputAction.CallbackContext ctx)
@@ -124,7 +131,7 @@ namespace LeftOut.GameJam
             if (!ctx.performed)
                 return;
             
-            _characterDriver.AttackRight();
+            _combat.TryPerform(AttackType.SlapRight);
         }
     }
 }

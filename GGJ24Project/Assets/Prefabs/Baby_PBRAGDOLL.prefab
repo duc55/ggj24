@@ -1026,6 +1026,7 @@ GameObject:
   - component: {fileID: 6835954518267833693}
   - component: {fileID: 2161181780255230710}
   - component: {fileID: 6089791466467611486}
+  - component: {fileID: 7868169363404845718}
   m_Layer: 3
   m_Name: hand_L
   m_TagString: Untagged
@@ -1201,6 +1202,21 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7868169363404845718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2149304717280927880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b18ff7333f97e488caf2e899e63a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2174853305516042633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,6 +2054,7 @@ GameObject:
   - component: {fileID: 6532498604719814401}
   - component: {fileID: 3294500827669158118}
   - component: {fileID: 3125068738290606052}
+  - component: {fileID: 772157113548536468}
   m_Layer: 3
   m_Name: hand_R
   m_TagString: Untagged
@@ -2213,6 +2230,21 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &772157113548536468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505398186967353217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b18ff7333f97e488caf2e899e63a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3605689148883380559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,9 +3040,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.06
-  m_Height: 0.15
+  m_Height: 0.06
   m_Direction: 1
-  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Center: {x: 0, y: 0.13, z: 0}
 --- !u!54 &5652696958148709711
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4099,9 +4131,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.06
-  m_Height: 0.15
+  m_Height: 0.06
   m_Direction: 1
-  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Center: {x: 0, y: 0.13, z: 0}
 --- !u!54 &363686787227583109
 Rigidbody:
   m_ObjectHideFlags: 0
