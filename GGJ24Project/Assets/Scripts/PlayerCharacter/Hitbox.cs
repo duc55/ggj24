@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,28 +7,41 @@ namespace LeftOut.GameJam
     [RequireComponent(typeof(Rigidbody))]
     public class Hitbox : MonoBehaviour
     {
-        private Collider _collider;
         private float _timeCooldownFinished;
-        private bool IsTrigger => _collider.isTrigger;
-        private bool isOn => 
-            enabled && gameObject.activeInHierarchy && Time.time >= _timeCooldownFinished;
+        private bool _isOn;
+        
+        public Collider Collider { get; private set; }
+        private bool canHit => 
+            _isOn && Time.time >= _timeCooldownFinished;
+        public bool IsOn => _isOn;
         
         public UnityEvent<Hitbox, Collider> OnHit;
 
         private void Start()
         {
             _timeCooldownFinished = -1f;
-            _collider = GetComponentInChildren<Collider>();
-        }
-        
-        public void SetStatus(bool active)
-        {
-            if (IsTrigger)
-                gameObject.SetActive(active);
-            else
-                enabled = active;
+            Collider = GetComponentInChildren<Collider>();
         }
 
+        private void OnEnable()
+        {
+            InstanceRegistry<Hitbox>.Add(this);
+        }
+        
+        private void OnDisable()
+        {
+            InstanceRegistry<Hitbox>.Remove(this);
+        }
+
+        public void TurnOn()
+        {
+            _isOn = true;
+            _timeCooldownFinished = Time.time;
+        }
+
+        public void TurnOff()
+            => _isOn = false;
+                
         public void GoOnCooldownFor(float duration)
         {
             _timeCooldownFinished = Time.time + duration;
@@ -44,10 +58,10 @@ namespace LeftOut.GameJam
 
         private bool IsSelf(Collider other)
         {
-            if (InstanceRegistry<RagdollCharacter, Collider>
+            if (ComponentOwnerRegistry<RagdollCharacter, Collider>
                 .TryGetOwner(other, out var otherOwner)
-                && InstanceRegistry<RagdollCharacter, Collider>
-                    .TryGetOwner(_collider, out var myOwner))
+                && ComponentOwnerRegistry<RagdollCharacter, Collider>
+                    .TryGetOwner(Collider, out var myOwner))
             {
                 return ReferenceEquals(otherOwner, myOwner);
             }
@@ -57,7 +71,7 @@ namespace LeftOut.GameJam
         
         private void RaiseHitIfValid(Collider other)
         {
-            if (!isOn || IsSelf(other))
+            if (!canHit || IsSelf(other))
                 return;
             
             OnHit.Invoke(this, other);

@@ -9,6 +9,8 @@ namespace LeftOut.GameJam
     [RequireComponent(typeof(RagdollCombat))]
     public class CharacterInputHandler : MonoBehaviour
     {
+        private bool _wasHoldingRun;
+        
         private RagdollLocomotion _locomotion;
         private RagdollCombat _combat;
         private PlayerInput _input;
@@ -35,6 +37,7 @@ namespace LeftOut.GameJam
 
         private void Start()
         {
+            _wasHoldingRun = false;
             _isInitialized = false;
             _locomotion = GetComponent<RagdollLocomotion>();
             _combat = GetComponent<RagdollCombat>();
@@ -55,8 +58,22 @@ namespace LeftOut.GameJam
         {
             if (!_isInitialized)
                 return;
-            OnMove(_moveInput.ReadValue<Vector2>());
             
+            OnMove(_moveInput.ReadValue<Vector2>());
+            var runIsPressed = _runInput.IsPressed();
+            if (_wasHoldingRun == runIsPressed)
+                return;
+            
+            if (runIsPressed)
+            {
+                _locomotion.StartRunning();
+            }
+            else
+            {
+                _locomotion.StopRunning();
+            }
+
+            _wasHoldingRun = runIsPressed;
         }
 
         public void BindInputs(PlayerInput playerInput)
