@@ -1,16 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace LeftOut.GameJam 
 {
-    [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(Rigidbody))]
     public class RagdollCharacterDriver : MonoBehaviour
     {
-        private CharacterController _cc;
+        private Rigidbody _rb;
+        // This is the thing that moves the hands on the ragdoll
         private PlayerCombat _combat;
+        
         private ControlState _state;
         
         [SerializeField]
@@ -18,13 +17,13 @@ namespace LeftOut.GameJam
         public Transform cameraTarget;
 
         [SerializeField, Range(0.01f, 10f)]
-        private float movementGain = 1f;
+        private float movementSpeed = 1f;
         [SerializeField, Range(60f, 1080f)]
         private float rotationSpeed = 720f;
         
         void Start()
         {
-            _cc = GetComponent<CharacterController>();
+            _rb = GetComponent<Rigidbody>();
             _state = new ControlState();
             _combat = ragDollRoot.GetComponentInChildren<PlayerCombat>();
             ragDollRoot.parent = null;
@@ -32,12 +31,19 @@ namespace LeftOut.GameJam
 
         private void Update()
         {
-            _cc.Move(movementGain * Time.deltaTime * _state.MoveVector);
+            //_cc.Move(movementGain * Time.deltaTime * _state.MoveVector);
             if (!_state.IsMoving)
                 return;
             
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation, Quaternion.LookRotation(_state.MoveVector), rotationSpeed * Time.deltaTime);
+        }
+
+        private void FixedUpdate()
+        {
+            var lateralVelocity = movementSpeed * _state.MoveVector;
+            var currentVelocity = _rb.velocity;
+            _rb.velocity = new Vector3(lateralVelocity.x, currentVelocity.y, lateralVelocity.z);
         }
 
         public void SetMove(Vector3 moveVector)
