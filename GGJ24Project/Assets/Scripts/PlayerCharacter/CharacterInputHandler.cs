@@ -9,7 +9,8 @@ namespace LeftOut.GameJam
     [RequireComponent(typeof(RagdollCombat))]
     public class CharacterInputHandler : MonoBehaviour
     {
-        private Camera _cam;
+        private bool _wasHoldingRun;
+        
         private RagdollLocomotion _locomotion;
         private RagdollCombat _combat;
         private PlayerInput _input;
@@ -34,9 +35,9 @@ namespace LeftOut.GameJam
             BindInputs(_input);
         }
 
-        private void Awake()
+        private void Start()
         {
-            _cam = Camera.main;
+            _wasHoldingRun = false;
             _isInitialized = false;
             _locomotion = GetComponent<RagdollLocomotion>();
             _combat = GetComponent<RagdollCombat>();
@@ -57,8 +58,22 @@ namespace LeftOut.GameJam
         {
             if (!_isInitialized)
                 return;
-            OnMove(_moveInput.ReadValue<Vector2>());
             
+            OnMove(_moveInput.ReadValue<Vector2>());
+            var runIsPressed = _runInput.IsPressed();
+            if (_wasHoldingRun == runIsPressed)
+                return;
+            
+            if (runIsPressed)
+            {
+                _locomotion.StartRunning();
+            }
+            else
+            {
+                _locomotion.StopRunning();
+            }
+
+            _wasHoldingRun = runIsPressed;
         }
 
         public void BindInputs(PlayerInput playerInput)
@@ -93,20 +108,6 @@ namespace LeftOut.GameJam
             _actionCallbacks[inputAction] = callback;
         }
 
-        private static Vector3 MoveVectorRelativeToWorld(Transform cameraTf, in Vector2 moveInputRaw)
-        {
-            var cameraForwardLateral = Vector3.ProjectOnPlane(
-                cameraTf.forward, Vector3.up).normalized;
-            var cameraPlanarRotation = Quaternion.LookRotation(cameraForwardLateral);
-            var moveInputLocal = new Vector3(moveInputRaw.x, 0f, moveInputRaw.y);
-            var moveInputWorldPlane = cameraPlanarRotation * moveInputLocal;
-            if (moveInputWorldPlane.sqrMagnitude > 1f + float.Epsilon)
-            {
-                moveInputWorldPlane.Normalize();
-            }
-
-            return moveInputWorldPlane;
-        }
 
         public void OnMove(InputAction.CallbackContext ctx)
             => OnMove(ctx.ReadValue<Vector2>());
@@ -114,8 +115,7 @@ namespace LeftOut.GameJam
         
         private void OnMove(Vector2 moveRelative)
         {
-            var moveWorld = MoveVectorRelativeToWorld(_cam.transform, moveRelative);
-            _locomotion.SetMove(moveWorld);
+            _locomotion.SetMoveFromCamera(moveRelative);
         }
 
         private void OnAttackLeft(InputAction.CallbackContext ctx)
