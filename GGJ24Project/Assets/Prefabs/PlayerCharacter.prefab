@@ -4973,7 +4973,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footCartLeft: {fileID: 738598736147643759}
   footCartRight: {fileID: 6646110057927101975}
-  movementSpeed: 2
+  movementSpeed: 1.8
+  runSpeed: 4
+  accelerationTime: 0.5
 --- !u!114 &4950640930082246888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4986,8 +4988,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def99ccb214328c4ab8753c1d2a7afa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FistHitboxLeft: {fileID: 5110070710237403168}
-  FistHitboxRight: {fileID: 2408445759593025570}
+  slapStats:
+    TotalFrames: 13
+    NumWindupFrames: 5
+  fistHitboxLeft: {fileID: 5110070710237403168}
+  fistHitboxRight: {fileID: 2408445759593025570}
 --- !u!114 &8038613359076532201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,6 +5110,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2559402226228370302, guid: a189df17832a37e4f93b8c7e9d2759fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2631796986852476069, guid: a189df17832a37e4f93b8c7e9d2759fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5185,6 +5195,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.05322028
       objectReference: {fileID: 0}
+    - target: {fileID: 2962045653431192200, guid: a189df17832a37e4f93b8c7e9d2759fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3611801969288055629, guid: a189df17832a37e4f93b8c7e9d2759fc,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5245,6 +5260,11 @@ PrefabInstance:
       propertyPath: RBToRotate
       value: 
       objectReference: {fileID: 460404456454632016}
+    - target: {fileID: 6693878691735883151, guid: a189df17832a37e4f93b8c7e9d2759fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6720757567912539116, guid: a189df17832a37e4f93b8c7e9d2759fc,
         type: 3}
       propertyPath: RBToRotate
