@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace LeftOut.GameJam
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Hitbox : MonoBehaviour
+    public class Hitbox<TOwner> : MonoBehaviour where TOwner : Component
     {
         private float _timeCooldownFinished;
         private bool _isOn;
@@ -15,22 +15,25 @@ namespace LeftOut.GameJam
             _isOn && Time.time >= _timeCooldownFinished;
         public bool IsOn => _isOn;
         
-        public UnityEvent<Hitbox, Collider> OnHit;
+        public UnityEvent<Hitbox<TOwner>, Collider> onHitTrigger;
+        public UnityEvent<Hitbox<TOwner>, Collision> onHitCollision;
 
         private void Start()
         {
             _timeCooldownFinished = -1f;
             Collider = GetComponentInChildren<Collider>();
+            ComponentOwnerRegistry<Hitbox<TOwner>, Collider>.Register(this, Collider);
         }
 
         private void OnEnable()
         {
-            InstanceRegistry<Hitbox>.Add(this);
+            InstanceRegistry<Hitbox<TOwner>>.Add(this);
         }
         
         private void OnDisable()
         {
-            InstanceRegistry<Hitbox>.Remove(this);
+            InstanceRegistry<Hitbox<TOwner>>.Remove(this);
+            ComponentOwnerRegistry<Hitbox<TOwner>, Collider>.Remove(Collider);
         }
 
         public void TurnOn()
@@ -48,19 +51,20 @@ namespace LeftOut.GameJam
         }
         
         private void OnCollisionEnter(Collision other)
-            => RaiseHitIfValid(other.collider);
+            => RaiseHitIfValid(other);
         private void OnCollisionStay(Collision other)
-            => RaiseHitIfValid(other.collider);
+            => RaiseHitIfValid(other);
+
         private void OnTriggerEnter(Collider other)
             => RaiseHitIfValid(other);
         private void OnTriggerStay(Collider other)
             => RaiseHitIfValid(other);
-
+        
         private bool IsSelf(Collider other)
         {
-            if (ComponentOwnerRegistry<RagdollCharacter, Collider>
+            if (ComponentOwnerRegistry<TOwner, Collider>
                 .TryGetOwner(other, out var otherOwner)
-                && ComponentOwnerRegistry<RagdollCharacter, Collider>
+                && ComponentOwnerRegistry<TOwner, Collider>
                     .TryGetOwner(Collider, out var myOwner))
             {
                 return ReferenceEquals(otherOwner, myOwner);
@@ -68,13 +72,21 @@ namespace LeftOut.GameJam
 
             return false;
         }
-        
+
         private void RaiseHitIfValid(Collider other)
         {
             if (!canHit || IsSelf(other))
                 return;
             
-            OnHit.Invoke(this, other);
+            onHitTrigger.Invoke(this, other);
+        }
+        
+        private void RaiseHitIfValid(Collision collision)
+        {
+            if (!canHit || IsSelf(collision.collider))
+                return;
+            
+            onHitCollision.Invoke(this, collision);
         }
     }
 }

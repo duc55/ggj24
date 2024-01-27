@@ -60,6 +60,9 @@ namespace LeftOut.GameJam
             }
         }
 
+        public static TOwner GetOwner(in TComponent instance)
+            => ComponentOwners[instance];
+
         public static bool TryGetOwner(in TComponent instance, out TOwner owner)
             => ComponentOwners.TryGetValue(instance, out owner);
 

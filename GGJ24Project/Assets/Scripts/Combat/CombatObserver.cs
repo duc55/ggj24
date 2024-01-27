@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 namespace LeftOut.GameJam
 {
-    // TODO: This class should be observing the RagdollCombat classes, not the Hitboxes directly
+    // TODO: This class should be observing the RagdollCombat classes, not the RagdollHitboxes directly
     public class CombatObserver : MonoBehaviour
     {
-        private HashSet<Hitbox> _allHitboxes;
+        private HashSet<RagdollCombat> _allCombatants;
         public CombatObserver Instance { get; private set; }
 
         [SerializeField, Range(0.01f, 1f)]
-        private float defaultHitboxCooldown;
+        private float defaultRagdollHitboxCooldown;
         
 
         private void Awake()
@@ -22,63 +22,47 @@ namespace LeftOut.GameJam
 
         private void Start()
         {
-            foreach (var hitbox in InstanceRegistry<Hitbox>.All)
+            foreach (var baby in InstanceRegistry<RagdollCombat>.All)
             {
-                AddHitbox(hitbox);
+                AddCombatant(baby);
             }
         }
 
         private void OnEnable()
         {
-            _allHitboxes = new HashSet<Hitbox>();
-            InstanceRegistry<Hitbox>.OnAdd += AddHitbox;
-            InstanceRegistry<Hitbox>.OnRemove += RemoveHitbox;
+            _allCombatants = new HashSet<RagdollCombat>();
+            InstanceRegistry<RagdollCombat>.OnAdd += AddCombatant;
+            InstanceRegistry<RagdollCombat>.OnRemove += RemoveCombatant;
         }
 
         private void OnDisable()
         {
-            InstanceRegistry<Hitbox>.OnAdd -= AddHitbox;
-            InstanceRegistry<Hitbox>.OnRemove -= RemoveHitbox;
+            InstanceRegistry<RagdollCombat>.OnAdd -= AddCombatant;
+            InstanceRegistry<RagdollCombat>.OnRemove -= RemoveCombatant;
         }
 
-        private void AddHitbox(Hitbox hitbox)
+        private void AddCombatant(RagdollCombat baby)
         {
             if (!Application.isPlaying)
                 return;
             
-            _allHitboxes.Add(hitbox);
-            hitbox.OnHit.AddListener(OnHitboxCollided);
+            _allCombatants.Add(baby);
+            baby.onHitConnect.AddListener(OnHitConnect);
         }
         
-        private void RemoveHitbox(Hitbox hitbox)
+        private void RemoveCombatant(RagdollCombat baby)
         {
-            if (!_allHitboxes.Contains(hitbox))
+            if (!_allCombatants.Contains(baby))
                 return;
 
-            hitbox.OnHit.RemoveListener(OnHitboxCollided);
-            _allHitboxes.Remove(hitbox);
+            baby.onHitConnect.RemoveListener(OnHitConnect);
+            _allCombatants.Remove(baby);
         }
         
-        private void OnHitboxCollided(Hitbox hitbox, Collider other)
+        private void OnHitConnect(HitConnectEvent hit)
         {
-            if (!ComponentOwnerRegistry<RagdollCharacter, Collider>.TryGetOwner(
-                    hitbox.Collider, out var source))
-            {
-                Debug.LogError(
-                    $"{hitbox.name} just hit {other.name} but it has no registered owner!", hitbox);
-                return;
-            }
-
-            if (!ComponentOwnerRegistry<RagdollCharacter, Collider>
-                    .TryGetOwner(other, out var target))
-            {
-                Debug.LogError(
-                    $"{other.name} just got hit by {hitbox.name} but it has no registered owner!", other);
-                return;
-            }
-            
-            Debug.Log($"{source.name} just hit {target.name}!");
-            hitbox.GoOnCooldownFor(defaultHitboxCooldown);
+            Debug.Log($"{hit.Instigator.name} just hit {hit.Other.name}!");
+            hit.Hitbox.GoOnCooldownFor(defaultRagdollHitboxCooldown);
         }
     }
 }

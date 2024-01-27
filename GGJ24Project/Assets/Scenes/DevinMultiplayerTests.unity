@@ -3622,7 +3622,7 @@ PrefabInstance:
     - target: {fileID: 3254645624616926845, guid: 0424f1c611ccb1242af19fb84e9e0311,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25571558
+      value: 0.2557156
       objectReference: {fileID: 0}
     - target: {fileID: 3254645624616926845, guid: 0424f1c611ccb1242af19fb84e9e0311,
         type: 3}
@@ -3647,7 +3647,7 @@ PrefabInstance:
     - target: {fileID: 4095237580072355936, guid: 0424f1c611ccb1242af19fb84e9e0311,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25571558
+      value: 0.2557156
       objectReference: {fileID: 0}
     - target: {fileID: 4095237580072355936, guid: 0424f1c611ccb1242af19fb84e9e0311,
         type: 3}
@@ -49573,7 +49573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f83ad1e7dc14e339db9dcdbe21293dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultHitboxCooldown: 0
+  defaultRagdollHitboxCooldown: 0
 --- !u!4 &1948490851
 Transform:
   m_ObjectHideFlags: 0
