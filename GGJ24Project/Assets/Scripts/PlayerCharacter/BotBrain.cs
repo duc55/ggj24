@@ -40,7 +40,7 @@ namespace LeftOut.GameJam
             var distToBaby = toBaby.magnitude;
 
             // chase the baby!
-            if (distToBaby > 2f)
+            if (distToBaby > 1f)
             {
                 // TODO: This only starts movement and it never stops
                 Debug.Log($"distance is {distToBaby}");
@@ -58,6 +58,7 @@ namespace LeftOut.GameJam
             }
             
             // TODO: spit up at the baby!
+            
         }
 
         private void Hug()
