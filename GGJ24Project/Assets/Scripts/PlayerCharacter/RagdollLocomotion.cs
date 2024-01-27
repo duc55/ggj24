@@ -6,6 +6,7 @@ namespace LeftOut.GameJam
     [RequireComponent(typeof(Rigidbody))]
     public class RagdollLocomotion : MonoBehaviour
     {
+        private Camera _cam;
         private Rigidbody _rb;
         private ControlState _state;
         private float _timeLastRunStarted;
@@ -23,6 +24,7 @@ namespace LeftOut.GameJam
         
         void Start()
         {
+            _cam = Camera.main;
             _rb = GetComponent<Rigidbody>();
             _state = new ControlState();
             _timeLastRunStopped = Time.time - 1f;
@@ -47,10 +49,41 @@ namespace LeftOut.GameJam
             var currentVelocity = _rb.velocity;
             _rb.velocity = new Vector3(lateralVelocity.x, currentVelocity.y, lateralVelocity.z);
         }
+        
+        public static Vector3 MoveVectorRelativeToWorld(Transform cameraTf, in Vector2 moveInputRaw)
+        {
+            var cameraForwardLateral = Vector3.ProjectOnPlane(
+                cameraTf.forward, Vector3.up).normalized;
+            var cameraPlanarRotation = Quaternion.LookRotation(cameraForwardLateral);
+            var moveInputLocal = new Vector3(moveInputRaw.x, 0f, moveInputRaw.y);
+            var moveInputWorldPlane = cameraPlanarRotation * moveInputLocal;
+            if (moveInputWorldPlane.sqrMagnitude > 1f + float.Epsilon)
+            {
+                moveInputWorldPlane.Normalize();
+            }
 
-        public void SetMove(Vector3 moveVector)
+            return moveInputWorldPlane;
+        }
+
+        public void SetMoveFromSelf(Vector3 moveRelative)
+        {
+            var direction = transform.InverseTransformDirection(moveRelative);
+            SetMove(direction.x, direction.z);
+        }
+
+        public void SetMoveFromCamera(Vector3 moveRelative)
+        {
+            SetMoveFromCamera(new Vector2(moveRelative.x, moveRelative.z));
+        }
+        
+        public void SetMoveFromCamera(Vector2 moveRelative)
+        {
+            var moveVector = MoveVectorRelativeToWorld(_cam.transform, moveRelative);
+            SetMove(moveVector.x, moveVector.z);
+        }
+        public void SetMoveGlobal(Vector3 moveVector)
             => SetMove(moveVector.x, moveVector.z);
-        public void SetMove(Vector2 moveVector)
+        public void SetMoveGlobal(Vector2 moveVector)
             => SetMove(moveVector.x, moveVector.y);
         
         private void SetMove(float x, float z)
