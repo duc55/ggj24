@@ -21,23 +21,32 @@ namespace LeftOut.GameJam
                  "(instead of spawning from PlayerInputManager)")]
         private bool initializeSelf;
 
+        [Button]
+        public void FlushCallbacks()
+        {
+            foreach (var evt in _input.actionEvents)
+            {
+                evt.RemoveAllListeners();
+            }
+            BindInputs(_input);
+        }
+
         private void Awake()
         {
             _cam = Camera.main;
             _isInitialized = false;
             _characterDriver = GetComponent<RagdollCharacterDriver>();
-            _actionCallbacks = new Dictionary<InputAction, System.Action<InputAction.CallbackContext>>();
-            if (initializeSelf)
+            if (!initializeSelf)
+                return;
+            
+            Debug.Log("Initializing self.", this);
+            _input = GetComponent<PlayerInput>();
+            if (!_input.enabled)
             {
-                Debug.Log("Initializing self.", this);
-                var input = GetComponent<PlayerInput>();
-                if (!input.enabled)
-                {
-                    Debug.LogWarning($"{nameof(PlayerInput)} was disabled. Enabling it now.", input);
-                    input.enabled = true;
-                }
-                BindInputs(GetComponent<PlayerInput>());
+                Debug.LogWarning($"{nameof(PlayerInput)} was disabled. Enabling it now.", _input);
+                _input.enabled = true;
             }
+            FlushCallbacks();
         }
 
         private void Update()
@@ -49,6 +58,7 @@ namespace LeftOut.GameJam
 
         public void BindInputs(PlayerInput playerInput)
         {
+            _actionCallbacks = new Dictionary<InputAction, System.Action<InputAction.CallbackContext>>();
             //playerInput.actions["Move"].performed += OnMove;
             _input = playerInput;
             _moveInput = playerInput.actions["Move"];
@@ -61,7 +71,7 @@ namespace LeftOut.GameJam
 
         private void OnDisable()
         {
-            foreach (var action in _input.actions)
+            foreach (var action in _actionCallbacks.Keys)
             {
                 if (_actionCallbacks.TryGetValue(action, out var callback))
                 {
