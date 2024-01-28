@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e81eef15-ff15-45da-93ed-52474ed36062}">
+		<property name="assetPath">
+			<value>Grunt2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.43004535147392292</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3c719036-7d07-45b6-9a94-69f6b7886f93}</destination>
+		</relationship>
+	</object>
+</objects>
