@@ -65,6 +65,19 @@ namespace LeftOut.GameJam
             {
                 CleanUpAttack(attack);
             }
+
+            //ADJUST RAGDOLL PIN STRENGTH
+            //tighten things up
+            if (_activeAttacks.Count > 0)
+            {
+                // _character.SetAnchorStength();
+            }
+            else
+            {
+                //loosen things up
+                // _character.SetAnchorStength();
+                
+            }
         }
 
         public bool TryPerform(AttackType attackType)

@@ -46,6 +46,8 @@ public class PlayerCombat : MonoBehaviour
     public IEnumerator HitL()
     {
         WaitForFixedUpdate wait = new WaitForFixedUpdate();
+        //tighten anchor
+        
         //enable the script
         handL_MatchPosRot.enabled = true;
         
@@ -58,6 +60,9 @@ public class PlayerCombat : MonoBehaviour
             timer++;
             yield return wait;
         }
+        
+        //loosen anchor
+        
         //enable the script
         handL_MatchPosRot.enabled = false;
     }

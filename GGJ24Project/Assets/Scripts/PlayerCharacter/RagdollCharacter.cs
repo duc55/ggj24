@@ -28,6 +28,15 @@ namespace LeftOut.GameJam
             ComponentOwnerRegistry<RagdollCharacter, Collider>.Clear();
             InstanceRegistry<RagdollCharacter>.Clear();
         }
+        
+        [Header("PHYSICS ANCHORS")]
+        public RigidbodyMatchPositionAndRotationOpus headAnchor;
+        public RigidbodyMatchPositionAndRotationOpus chestAnchor;
+        public RigidbodyMatchPositionAndRotationOpus hipsAnchor;
+        public void SetAnchorStength(float strength)
+        {
+            
+        }
 
         private void Start()
         {
