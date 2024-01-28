@@ -47,13 +47,7 @@ MonoBehaviour:
   m_PositionMode: 0
   m_RotationMode: 1
   m_UpdateMethod: 2
-  m_Targets:
-  - target: {fileID: 0}
-    weight: 1
-    radius: 0.3
-  - target: {fileID: 0}
-    weight: 1
-    radius: 0.3
+  m_Targets: []
 --- !u!1 &3576093417416871944
 GameObject:
   m_ObjectHideFlags: 0

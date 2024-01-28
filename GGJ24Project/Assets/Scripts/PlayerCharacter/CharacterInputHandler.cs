@@ -93,6 +93,8 @@ namespace LeftOut.GameJam
 
         private void OnDisable()
         {
+            if (!_isInitialized)
+                return;
             foreach (var action in _actionCallbacks.Keys)
             {
                 if (_actionCallbacks.TryGetValue(action, out var callback))

@@ -4980,6 +4980,8 @@ MonoBehaviour:
   - {fileID: 2823830506981135173}
   - {fileID: 2488381338917762107}
   - {fileID: 6968875003804389721}
+  currentStamina: 0
+  bodyDamage: 0
 --- !u!114 &3237060890859168121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5029,7 +5031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3dd82a587dcb814fae8dcd5279ae00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initializeSelf: 1
+  initializeSelf: 0
 --- !u!114 &3754023604840015047
 MonoBehaviour:
   m_ObjectHideFlags: 0

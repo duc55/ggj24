@@ -11,7 +11,7 @@ namespace LeftOut.GameJam
         private bool _isOn;
         
         public Collider Collider { get; private set; }
-        private bool canHit => 
+        public bool CanHit => 
             _isOn && Time.time >= _timeCooldownFinished;
         public bool IsOn => _isOn;
         
@@ -75,7 +75,7 @@ namespace LeftOut.GameJam
 
         private void RaiseHitIfValid(Collider other)
         {
-            if (!canHit || IsSelf(other))
+            if (!CanHit || IsSelf(other))
                 return;
             
             onHitTrigger.Invoke(this, other);
@@ -83,7 +83,7 @@ namespace LeftOut.GameJam
         
         private void RaiseHitIfValid(Collision collision)
         {
-            if (!canHit || IsSelf(collision.collider))
+            if (!CanHit || IsSelf(collision.collider))
                 return;
             
             onHitCollision.Invoke(this, collision);

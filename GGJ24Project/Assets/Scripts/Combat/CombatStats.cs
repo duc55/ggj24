@@ -17,6 +17,10 @@ namespace LeftOut.GameJam
     [CreateAssetMenu(fileName = "CombatStats", menuName = "Left Out/Combat Stats", order = 0)]
     public class CombatStats : ScriptableObject
     {
+        // Per physics tick
+        public float baseStaminaRegenRate = 0.01f;
+        public float staminaRegenCooldown = 1f;
+        public float runStaminaDrainRate = 0.1f;
         public float initialStamina = 100f;
         public float damageMultiplierHead = 1.5f;
         public float damageMultiplierBody = 1f;

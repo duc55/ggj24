@@ -26,7 +26,8 @@ namespace LeftOut.GameJam
         [SerializeField, Range(0.01f, 3f)]
         private float accelerationTime = 0.5f;
         private float RotationSpeed => movementSpeed * 360f;
-        private bool IsRunning => _timeLastRunStopped < _timeLastRunStarted;
+        public bool IsRunning => _timeLastRunStopped < _timeLastRunStarted;
+        public bool IsRunningMaxSpeed => IsRunning && Time.time - _timeLastRunStarted > accelerationTime;
         private float CurrentSpeed
         {
             get

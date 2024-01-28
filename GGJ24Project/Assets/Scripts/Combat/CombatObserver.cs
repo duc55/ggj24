@@ -8,6 +8,7 @@ namespace LeftOut.GameJam
 {
     public class CombatObserver : MonoBehaviour
     {
+        private uint _lastSeenHitConnect;
         private HashSet<RagdollCombat> _allCombatants;
         public CombatObserver Instance { get; private set; }
 
@@ -27,6 +28,9 @@ namespace LeftOut.GameJam
 
         private void Start()
         {
+            _lastSeenHitConnect = 0;
+            HitConnect.ResetIds();
+            HitResolution.ResetIds();
             foreach (var baby in InstanceRegistry<RagdollCombat>.All)
             {
                 AddCombatant(baby);
@@ -92,9 +96,20 @@ namespace LeftOut.GameJam
         
         private void OnHitConnect(HitConnect hit)
         {
+            if (hit.Id <= _lastSeenHitConnect)
+            {
+                Debug.LogWarning($"Stale HitConnect (id: {hit.Id}) observed. " +
+                                 $"Ignoring because last observed was {_lastSeenHitConnect}");
+                return;
+            }
+            if (hit.Id > _lastSeenHitConnect + 1)
+            {
+                Debug.LogWarning($"HitConnect with id {hit.Id} observed when last was {_lastSeenHitConnect}");
+            }
             //Debug.Log($"{hit.Instigator.name} just hit {hit.Other.name}!");
             //hit.Hitbox.GoOnCooldownFor(defaultRagdollHitboxCooldown);
             // >>> TODO: Buffer these hits?
+            _lastSeenHitConnect = hit.Id;
             hit.Hitbox.TurnOff();
             var hitResult = hit.Other.GetHit(hit);
             hit.Instigator.AttackSucceeded(hit, hitResult);

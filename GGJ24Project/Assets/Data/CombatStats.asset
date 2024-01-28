@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c0d95454264817a56705fb4ee5a0bc, type: 3}
   m_Name: CombatStats
   m_EditorClassIdentifier: 
-  initialStamina: 100
-  damageMultiplierHead: 1.5
-  damageMultiplierBody: 1
-  damageMultiplierLimbs: 0.2
+  baseStaminaRegenRate: 150
+  staminaRegenCooldown: 0.79
+  runStaminaDrainRate: 400
+  initialStamina: 1000
+  damageMultiplierHead: 1.2
+  damageMultiplierBody: 0.9
+  damageMultiplierLimbs: 0.4
   slapAttackStats:
-    CostInitial: 1
-    CostWhileActive: 0.1
-    CostWhiff: 2
-    DamageStamina: 2
+    CostInitial: 15
+    CostWhileActive: 0
+    CostWhiff: 10
+    DamageStamina: 20
     DamageBody: 1

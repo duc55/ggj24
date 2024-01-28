@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -38,8 +39,7 @@ namespace LeftOut.GameJam
             _activeRagdollHitboxes = new Dictionary<Hitbox<RagdollCharacter>, AttackType>();
             _cleanupList = new List<AttackType>();
             InstanceRegistry<RagdollCombat>.Add(this);
-            fistRagdollHitboxLeft.onHitCollision.AddListener(OnHit);
-            fistRagdollHitboxRight.onHitCollision.AddListener(OnHit);
+            AddCallbacksToHitboxes();
         }
 
         private void OnDisable()
@@ -47,6 +47,20 @@ namespace LeftOut.GameJam
             fistRagdollHitboxLeft?.onHitCollision.RemoveListener(OnHit);
             fistRagdollHitboxRight?.onHitCollision.RemoveListener(OnHit);
             InstanceRegistry<RagdollCombat>.Remove(this);
+        }
+
+        [Button]
+        private void AddCallbacksToHitboxes()
+        {
+            fistRagdollHitboxLeft.onHitCollision.AddListener(OnHit);
+            fistRagdollHitboxRight.onHitCollision.AddListener(OnHit);
+        }
+
+        [Button]
+        private void ClearHitboxCallbacks()
+        {
+            fistRagdollHitboxLeft.onHitCollision.RemoveAllListeners();
+            fistRagdollHitboxRight.onHitCollision.RemoveAllListeners();
         }
 
         private void FixedUpdate()
@@ -88,12 +102,20 @@ namespace LeftOut.GameJam
         {
             if (result.MultiplierApplied < 1f)
             {
-                _character.SpendStamina(hit.Stats.CostInitial * Mathf.Clamp01(1f - result.MultiplierApplied));
+                _character.SpendStamina(hit.Stats.CostInitial * Mathf.Clamp01(1f - result.MultiplierApplied),
+                    true);
             }
+
+            _activeAttacks[hit.Type].Succeeded = true;
         }
 
         private void OnHit(Hitbox<RagdollCharacter> hitbox, Collision collision)
         {
+            if (!hitbox.CanHit)
+            {
+                Debug.LogWarning("Invalid hitbox event. Ignoring");
+                return;
+            }
             var attackType = _activeRagdollHitboxes[hitbox];
             var hitEvent = new HitConnect(
                 attackType,
@@ -162,6 +184,10 @@ namespace LeftOut.GameJam
         private void CleanUpAttack(AttackType type)
         {
             var attack = _activeAttacks[type];
+            if (!attack.Succeeded)
+            {
+                _character.SpendStamina(attack.Stats.CostWhiff, true);
+            }
             if (attack.RagdollRoutine != null)
                 StopCoroutine(attack.RagdollRoutine);
             attack.Hitbox.TurnOff();
@@ -173,6 +199,7 @@ namespace LeftOut.GameJam
         {
             var coroutine = FetchCoroutine(type);
             var hitbox = FetchRagdollHitbox(type);
+            _character.SpendStamina(stats.CostInitial, true);
             _activeAttacks.Add(
                 type, 
                 new Attack(FetchAnimationDescription(type), stats, hitbox, StartCoroutine(coroutine)));

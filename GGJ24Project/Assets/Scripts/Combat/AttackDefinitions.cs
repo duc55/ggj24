@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,9 +22,21 @@ namespace LeftOut.GameJam
     /// Describes a hit which has "connected" - meaning there was valid contact between a player's hitbox
     /// and their opponent's collider
     /// </summary>
-    public struct HitConnect
+    public readonly struct HitConnect
     {
-        public AttackType Type;
+        private static uint s_id = 0;
+
+        public static void ResetIds()
+        {
+            s_id = 0;
+        }
+        private static uint GetNextId()
+        {
+            s_id += 1;
+            return s_id;
+        }
+        public readonly uint Id;
+        public readonly AttackType Type;
         public readonly RagdollCombat Instigator;
         public readonly RagdollCharacter Other;
         public readonly RagdollHitbox Hitbox;
@@ -38,6 +51,7 @@ namespace LeftOut.GameJam
             AttackStats stats,
             Collision collision)
         {
+            Id = GetNextId();
             Type = type;
             Instigator = instigator;
             Other = other;
@@ -47,7 +61,7 @@ namespace LeftOut.GameJam
         }
 
         public override string ToString()
-            => $"{Instigator.name}({Hitbox.name}):{Type}>{Other.name}({Collision.collider.name})";
+            => $"[{Id}] {Instigator.name}({Hitbox.name}):{Type}>{Other.name}({Collision.collider.name})";
     }
 
     /// <summary>
@@ -55,6 +69,18 @@ namespace LeftOut.GameJam
     /// </summary>
     public struct HitResolution
     {
+        private static uint s_id = 0;
+
+        public static void ResetIds()
+        {
+            s_id = 0;
+        }
+        public static uint GetNextId()
+        {
+            s_id += 1;
+            return s_id;
+        }
+        public uint Id;
         public readonly float TimeStamp;
         public readonly float MultiplierApplied;
         public readonly float FinalStaminaDamage;
@@ -62,6 +88,7 @@ namespace LeftOut.GameJam
 
         public HitResolution(float multiplier, float staminaDamage, float bodyDamage)
         {
+            Id = GetNextId();
             TimeStamp = Time.time;
             MultiplierApplied = multiplier;
             FinalStaminaDamage = staminaDamage;
@@ -72,11 +99,14 @@ namespace LeftOut.GameJam
             => new HitResolution(0f, 0f, 0f);
 
         public override string ToString()
-            => $"{MultiplierApplied}x | (sta:{FinalStaminaDamage},bod:{FinalBodyDamage})";
+            => $"[{Id}][{TimeStamp}] {MultiplierApplied}x | (sta:{FinalStaminaDamage},bod:{FinalBodyDamage})";
     }
 
     public class Attack
     {
+        private bool _inWindup;
+
+        public bool Succeeded = false;
         public readonly AttackAnimation Animation;
         public readonly AttackStats Stats;
         public readonly RagdollHitbox Hitbox;
@@ -93,13 +123,17 @@ namespace LeftOut.GameJam
             Hitbox = hitbox;
             RagdollRoutine = ragdollRoutine;
             CurrentFrame = 0;
+            _inWindup = true;
         }
 
         public void Tick()
         {
             CurrentFrame += 1;
-            if (CurrentFrame > Animation.NumWindupFrames && !Hitbox.IsOn)
+            if (_inWindup && CurrentFrame > Animation.NumWindupFrames && !Hitbox.IsOn)
+            {
                 Hitbox.TurnOn();
+                _inWindup = false;
+            }
         }
     }
     

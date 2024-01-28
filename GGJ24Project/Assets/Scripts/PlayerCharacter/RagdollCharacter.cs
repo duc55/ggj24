@@ -4,23 +4,29 @@ using UnityEngine;
 
 namespace LeftOut.GameJam
 {
+    [RequireComponent(typeof(RagdollLocomotion))]
     public class RagdollCharacter : MonoBehaviour
     {
         private Dictionary<Collider, float> _colliderMultipliers;
-        
+        private RagdollLocomotion _locomotion;
+        private float _timeLastStaminaCooldown;
+
         public CombatStats combatStats;
         public Transform ragDollRoot;
         public Transform cameraTarget;
         public Collider[] headColliders;
         public Collider[] bodyColliders;
         public Collider[] limbColliders;
-        
-        [field: ProgressBar("Stamina", "MaxStamina", EColor.Green)]
-        public float CurrentStamina { get; private set; }
-        [field: ProgressBar("Damage", 300, EColor.Red)]
-        public float BodyDamage { get; private set; }
+
+        [SerializeField, ProgressBar("Stamina", "MaxStamina", EColor.Green)]
+        private float currentStamina;
+        public float CurrentStamina => currentStamina;
+        [SerializeField, ProgressBar("Damage", 300, EColor.Red)]
+        private float bodyDamage;
+        public float BodyDamage => bodyDamage;
 
         public float MaxStamina => combatStats ? combatStats.initialStamina : 100;
+        public bool StaminaCanRegen => Time.time - _timeLastStaminaCooldown >= combatStats.staminaRegenCooldown;
 
         [Button]
         public static void ClearInstanceRegistry()
@@ -31,6 +37,7 @@ namespace LeftOut.GameJam
 
         private void Start()
         {
+            _locomotion = GetComponent<RagdollLocomotion>();
             _colliderMultipliers = new Dictionary<Collider, float>();
             foreach (var head in headColliders)
             {
@@ -44,8 +51,8 @@ namespace LeftOut.GameJam
             {
                 _colliderMultipliers.Add(limb, combatStats.damageMultiplierLimbs);
             }
-            CurrentStamina = combatStats.initialStamina;
-            BodyDamage = 0f;
+            currentStamina = combatStats.initialStamina;
+            bodyDamage = 0f;
             ragDollRoot.parent = null;
             MatchInfo.Register(this);
 #if UNITY_EDITOR
@@ -72,6 +79,20 @@ namespace LeftOut.GameJam
             MatchInfo.UnRegister(this);
         }
 
+        private void Update()
+        {
+            if (_locomotion.IsRunningMaxSpeed)
+            {
+                SpendStamina(Time.deltaTime * combatStats.runStaminaDrainRate, false);
+            }
+
+            if (!StaminaCanRegen)
+                return;
+            
+            currentStamina = Mathf.Min(combatStats.initialStamina, 
+                currentStamina + Time.deltaTime * combatStats.baseStaminaRegenRate);
+        }
+
         public HitResolution GetHit(in HitConnect hit)
         {
             if (hit.Other != this)
@@ -87,25 +108,27 @@ namespace LeftOut.GameJam
                 multiplier = 1f;
             }
 
-            var staminaDamage = multiplier * hit.Stats.DamageStamina;
-            if (!Mathf.Approximately(0f, CurrentStamina) && staminaDamage > float.Epsilon)
+            var staminaLost = multiplier * hit.Stats.DamageStamina;
+            if (!Mathf.Approximately(0f, CurrentStamina) && staminaLost > float.Epsilon)
             {
-                staminaDamage = SpendStamina(staminaDamage);
+                staminaLost = SpendStamina(staminaLost, false);
             }
 
-            var bodyDamage = multiplier * hit.Stats.DamageBody;
-            if (bodyDamage > float.Epsilon)
+            var damage = multiplier * hit.Stats.DamageBody;
+            if (damage > float.Epsilon)
             {
-                BodyDamage += bodyDamage;
+                bodyDamage += damage;
             }
 
-            return new HitResolution(multiplier, staminaDamage, bodyDamage);
+            return new HitResolution(multiplier, staminaLost, bodyDamage);
         }
 
-        public float SpendStamina(float amount)
+        public float SpendStamina(float amount, bool incurCooldown)
         {
+            if (incurCooldown)
+                _timeLastStaminaCooldown = Time.time;
             var amountLost = Mathf.Min(amount, CurrentStamina);
-            CurrentStamina -= amountLost;
+            currentStamina -= amountLost;
             return amountLost;
         }
     }
