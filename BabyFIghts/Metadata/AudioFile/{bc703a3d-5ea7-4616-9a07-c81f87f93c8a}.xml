@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bc703a3d-5ea7-4616-9a07-c81f87f93c8a}">
+		<property name="assetPath">
+			<value>BabyFights_End.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.910136054421768</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3c719036-7d07-45b6-9a94-69f6b7886f93}</destination>
+		</relationship>
+	</object>
+</objects>
